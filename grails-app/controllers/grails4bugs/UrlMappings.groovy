@@ -1,4 +1,4 @@
-package date
+package grails4bugs
 
 class UrlMappings {
 

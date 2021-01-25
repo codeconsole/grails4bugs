@@ -1,9 +1,8 @@
-package date
+package grails4bugs
 
 class BootStrap {
 
     def init = { servletContext ->
-    	System.out.println "${new Date().dateString}"
     }
     def destroy = {
     }
