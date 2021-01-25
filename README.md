@@ -1,33 +1,11 @@
 # Grails 4.1.0 Bug Demonstrations
 
-Note: this is a freshly created **Grails 3.2.0** application with the following modifications:
-
 	sdk use grails 4.1.0.M5
-	grails create-app grails4bugs
-
-**BUG** 
-
-modified **build.gradle** to stop war generation
-
-	// apply plugin:"war"
-  
-modified **build.gradle** to create executable jar
-
-	bootJar {
-	    launchScript()
-	}
-
-Verify working:
-	grails run-app
-
-http://localhost:8080
-
-Stop run-app and package
+	git clone https://github.com/codeconsole/grails4bugs
+	cd grails4bugs
 	grails package
-  
-Run jar
 	./build/libs/grails4bugs-0.1.jar 
-  
+
 http://localhost:8080
 
 ```
@@ -172,3 +150,47 @@ Caused by: java.lang.NullPointerException: Cannot get property 'config' on null 
 	at org.grails.gsp.GroovyPage.invokeTag(GroovyPage.java:364)
 	... 104 common frames omitted
 ```
+Note: using `grails run-app' works. Only running the jar does not work.  Executable jars broke starting in 4.1.0.M3
+
+Demonstrate exeutable working with 4.1.0.M2:
+
+	git checkout 4.1.0.M2
+	grails clean
+	grails package	
+	./build/libs/grails4bugs-0.1.jar 
+
+http://localhost:8080
+
+Works!
+
+How this app was built:
+
+Note: this is a freshly created **Grails 4.1.0.M5** application with the following modifications:
+
+	sdk use grails 4.1.0.M5
+	grails create-app grails4bugs
+
+**BUG** 
+
+modified **build.gradle** to stop war generation
+
+	// apply plugin:"war"
+  
+modified **build.gradle** to create executable jar
+
+	bootJar {
+	    launchScript()
+	}
+
+Verify working:
+	grails run-app
+
+http://localhost:8080
+
+Stop run-app and package
+	grails package
+  
+Run jar
+	./build/libs/grails4bugs-0.1.jar 
+  
+http://localhost:8080
