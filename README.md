@@ -152,7 +152,7 @@ Caused by: java.lang.NullPointerException: Cannot get property 'config' on null 
 ```
 Note: using `grails run-app' works. Only running the jar does not work.  Executable jars broke starting in 4.1.0.M3
 
-Demonstrate exeutable working with 4.1.0.M2:
+Demonstrate executable working with 4.1.0.M2:
 
 	git checkout 4.1.0.M2
 	grails clean
