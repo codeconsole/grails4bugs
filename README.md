@@ -26,7 +26,7 @@ Stop run-app and package
 	grails package
   
 Run jar
-	./build/libs/grails4bugs.m5-0.1.jar 
+	./build/libs/grails4bugs-0.1.jar 
   
 http://localhost:8080
 
