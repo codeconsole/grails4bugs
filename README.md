@@ -1,4 +1,4 @@
-# Grails 4.1.0 Bug Demonstrations
+# Grails 5.0.0/4.1.0 Bug Demonstrations
 
 	sdk use grails 4.1.0.M5
 	git clone https://github.com/codeconsole/grails4bugs
@@ -167,7 +167,7 @@ How this app was built:
 
 Note: this is a freshly created **Grails 4.1.0.M5** application with the following modifications:
 
-	sdk use grails 4.1.0.M5
+	sdk use grails 5.0.0.M1
 	rm -rf *
 	cd ..
 	grails create-app grails4bugs
