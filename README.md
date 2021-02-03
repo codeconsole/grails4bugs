@@ -1,6 +1,6 @@
 # Grails 5.0.0/4.1.0 Bug Demonstrations
 
-	sdk use grails 4.1.0.M5
+	sdk use grails 5.0.0.M1
 	git clone https://github.com/codeconsole/grails4bugs
 	cd grails4bugs
 	grails package
