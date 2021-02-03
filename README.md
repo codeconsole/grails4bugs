@@ -171,6 +171,7 @@ Note: this is a freshly created **Grails 4.1.0.M5** application with the followi
 	rm -rf *
 	cd ..
 	grails create-app grails4bugs
+	cd grails4bugs
 
 **BUG** 
 
