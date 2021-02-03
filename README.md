@@ -168,6 +168,8 @@ How this app was built:
 Note: this is a freshly created **Grails 4.1.0.M5** application with the following modifications:
 
 	sdk use grails 4.1.0.M5
+	rm -rf *
+	cd ..
 	grails create-app grails4bugs
 
 **BUG** 
