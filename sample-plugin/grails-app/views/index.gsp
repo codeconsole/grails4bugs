@@ -73,7 +73,5 @@
     </section>
 </div>
 
-<asset:javascript src="helloWorld.js"/>
-
 </body>
 </html>

@@ -4,21 +4,17 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
-        classpath "gradle.plugin.com.github.erdi.webdriver-binaries:webdriver-binaries-gradle-plugin:2.4"
-        classpath "org.grails.plugins:hibernate5:7.1.0.M5"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:3.3.1"
     }
 }
 
 version "0.1"
-group "grails4bugs"
+group "sample.plugin"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
-// apply plugin:"war"
-apply plugin:"org.grails.grails-web"
-apply plugin:"com.github.erdi.webdriver-binaries"
-apply plugin:"com.bertramlabs.asset-pipeline"
+apply plugin:"org.grails.grails-plugin"
+apply plugin:"asset-pipeline"
 apply plugin:"org.grails.grails-gsp"
 
 repositories {
@@ -37,7 +33,7 @@ dependencies {
     compileOnly "io.micronaut:micronaut-inject-groovy"
     console "org.grails:grails-console"
     implementation "org.springframework.boot:spring-boot-starter-logging"
-    implementation "org.springframework.boot:spring-boot-starter-validation"    
+    implementation "org.springframework.boot:spring-boot-starter-validation"
     implementation "org.springframework.boot:spring-boot-autoconfigure"
     implementation "org.grails:grails-core"
     implementation "org.springframework.boot:spring-boot-starter-actuator"
@@ -53,28 +49,13 @@ dependencies {
     implementation "org.grails.plugins:cache"
     implementation "org.grails.plugins:async"
     implementation "org.grails.plugins:scaffolding"
-    implementation "org.grails.plugins:events"
-    implementation "org.grails.plugins:hibernate5"
-    implementation "org.hibernate:hibernate-core:5.4.32.Final"
     implementation "org.grails.plugins:gsp"
-    profile "org.grails.profiles:web"
-    runtimeOnly "org.glassfish.web:el-impl:2.2.1-b05"
-    runtimeOnly "com.h2database:h2:1.4.200"
-    runtimeOnly "org.apache.tomcat:tomcat-jdbc"
-    runtimeOnly "javax.xml.bind:jaxb-api:2.3.1"
+    profile "org.grails.profiles:web-plugin"
     runtimeOnly "com.bertramlabs.plugins:asset-pipeline-grails:3.3.1"
     testImplementation "io.micronaut:micronaut-inject-groovy"
     testImplementation "org.grails:grails-gorm-testing-support"
     testImplementation "org.mockito:mockito-core"
     testImplementation "org.grails:grails-web-testing-support"
-    testImplementation "org.grails.plugins:geb"
-    testImplementation "org.seleniumhq.selenium:selenium-remote-driver:3.141.59"
-    testImplementation "org.seleniumhq.selenium:selenium-api:3.141.59"
-    testImplementation "org.seleniumhq.selenium:selenium-support:3.141.59"
-    testRuntimeOnly "org.seleniumhq.selenium:selenium-chrome-driver:3.141.59"
-    testRuntimeOnly "org.seleniumhq.selenium:selenium-firefox-driver:3.141.59"
-
-    implementation files('sample-plugin/build/libs/sample-plugin-0.1-plain.jar')
 }
 
 bootRun {
@@ -98,25 +79,10 @@ tasks.withType(GroovyCompile) {
 tasks.withType(Test) {
     useJUnitPlatform()
 }
-
-webdriverBinaries {
-    chromedriver '2.45.0'
-    geckodriver '0.24.0'
-}
-
-tasks.withType(Test) {
-    systemProperty "geb.env", System.getProperty('geb.env')
-    systemProperty "geb.build.reportsDir", reporting.file("geb/integrationTest")
-    systemProperty "webdriver.chrome.driver", System.getProperty('webdriver.chrome.driver')
-    systemProperty "webdriver.gecko.driver", System.getProperty('webdriver.gecko.driver')
-}
+// enable if you wish to package this plugin as a standalone application
+bootJar.enabled = false
 
 
 assets {
-    minifyJs = true
-    minifyCss = true
-}
-
-bootJar {
-    launchScript()
+    packagePlugin = true
 }
