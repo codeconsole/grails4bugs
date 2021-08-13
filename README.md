@@ -1,6 +1,6 @@
-# Grails 5.0.0/4.1.0 Bug Demonstrations
+# Grails 5.0.0 Bug Demonstrations
 
-	sdk use grails 5.0.0.M2
+	sdk use grails 5.0.0.RC1
 	git clone https://github.com/codeconsole/grails4bugs
 	cd grails4bugs
 	cd sample-plugin
@@ -14,10 +14,20 @@ Notice a javascript alert "Hello World" which is coming from the plugin sample-p
 
 Also notice http://localhost:8080/assets/helloWorld.js?compile=false the js is available.
 
-Now build a runnable jar
+Now build a runnable war
 
 
 	grails package
+	./build/libs/grails4bugs-0.1.war
+
+Notice NO javascript alert "Hello World"
+
+Also notice http://localhost:8080/assets/helloWorld.js?compile=false returns a 404
+
+Now build a runnable bar
+
+
+	./gradlew bootJar
 	./build/libs/grails4bugs-0.1.jar
 
 Notice NO javascript alert "Hello World"
