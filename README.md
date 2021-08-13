@@ -1,5 +1,7 @@
 # Grails 5.0.0 Bug Demonstrations
 
+# Executable wars and jars do not have access to plugin resources
+
 	sdk use grails 5.0.0.RC1
 	git clone https://github.com/codeconsole/grails4bugs
 	cd grails4bugs
