@@ -1,5 +1,7 @@
 # Grails 5.0.0 Bug Demonstrations
 
+See https://github.com/grails/grails-core/issues/11999
+
 # Executable wars and jars do not have access to plugin resources
 
 	sdk use grails 5.0.0.RC2
