@@ -37,3 +37,9 @@ Now build a runnable bar
 Notice NO javascript alert "Hello World"
 
 Also notice http://localhost:8080/assets/helloWorld.js?compile=false returns a 404
+
+# This has been confrimed fixed with asset pipeline 3.3.4
+https://github.com/grails/grails-core/issues/11999#event-5265756232
+https://github.com/bertramdev/asset-pipeline/pull/280
+https://github.com/grails/grails-core/issues/11999
+https://github.com/bertramdev/asset-pipeline/issues/279
