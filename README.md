@@ -2,8 +2,18 @@
 
 # Running Multiple Datasources with JDK 17 results in Exception
 
-Step 1 - Verify App works with JDK < 17
+This is a very basic app that was created with the `grails create-app grails4bugs` command.
+Nothing was changed except a `dataSources` block was added to `application.yml`
+
+```yaml
+dataSources:
+    cloudsql:
+        dbCreate: create-drop
+        url: jdbc:h2:mem:devDb;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE 
 ```
+
+Step 1 - Verify App works with JDK < 17
+```bash
 git clone https://github.com/codeconsole/grails4bugs
 cd grails4bugs
 sdk use java 11.0.2-open
@@ -12,7 +22,7 @@ sdk use java 11.0.2-open
 ```Grails application running at http://localhost:8080 in environment: development```
 
 Step 2 - Verify App does not work with JDK 17
-```
+```bash
 sdk use java 17.0.1-open  
 ./gradlew clean bootRun
 ```
