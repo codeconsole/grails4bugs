@@ -8,16 +8,14 @@ git clone https://github.com/codeconsole/grails4bugs
 cd grails4bugs
 sdk use java 11.0.2-open
 ./gradlew clean bootRun
-Grails application running at http://localhost:8080 in environment: development
 ```
+```Grails application running at http://localhost:8080 in environment: development```
 
-Step 2 - Verify App does not work with JDK
+Step 2 - Verify App does not work with JDK 17
 ```
 sdk use java 17.0.1-open  
 ./gradlew clean bootRun
-Grails application running at http://localhost:8080 in environment: development
 ```
-
 ```
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'hibernateDatastore': Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.grails.orm.hibernate.HibernateDatastore]: Constructor threw exception; nested exception is groovy.lang.MissingMethodException: No signature of method: java.lang.Object.clone() is applicable for argument types: () values: []
 Possible solutions: collect(), collect(groovy.lang.Closure), collect(java.util.Collection, groovy.lang.Closure), any(), find(), sleep(long)
