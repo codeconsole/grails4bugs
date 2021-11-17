@@ -2,22 +2,30 @@
 
 # Running Multiple Datasources with JDK 17 results in Exception
 
-Step 1 - Verify App works with JDK < 17
+This is a very basic app that was created with the `grails create-app grails4bugs` command.
+Nothing was changed except a `dataSources` block was added to `application.yml`
+
+```yaml
+dataSources:
+    cloudsql:
+        dbCreate: create-drop
+        url: jdbc:h2:mem:devDb;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE 
 ```
+
+Step 1 - Verify App works with JDK < 17
+```bash
 git clone https://github.com/codeconsole/grails4bugs
 cd grails4bugs
 sdk use java 11.0.2-open
 ./gradlew clean bootRun
-Grails application running at http://localhost:8080 in environment: development
 ```
+```Grails application running at http://localhost:8080 in environment: development```
 
-Step 2 - Verify App does not work with JDK
-```
+Step 2 - Verify App does not work with JDK 17
+```bash
 sdk use java 17.0.1-open  
 ./gradlew clean bootRun
-Grails application running at http://localhost:8080 in environment: development
 ```
-
 ```
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'hibernateDatastore': Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.grails.orm.hibernate.HibernateDatastore]: Constructor threw exception; nested exception is groovy.lang.MissingMethodException: No signature of method: java.lang.Object.clone() is applicable for argument types: () values: []
 Possible solutions: collect(), collect(groovy.lang.Closure), collect(java.util.Collection, groovy.lang.Closure), any(), find(), sleep(long)
