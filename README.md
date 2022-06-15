@@ -1,7 +1,7 @@
 # Grails 5.1.8 Bug Demonstrations
 # Grails CLI does not work with JDK 17 with Security Plugins
 
-Step 1 - Verify App starts with JDK 17
+Step 1 - Verify app starts with JDK 17
 ```bash
 git clone https://github.com/codeconsole/grails4bugs
 cd grails4bugs
@@ -11,7 +11,7 @@ sdk use java 22.1.0.r17-grl
 ```Grails application running at http://localhost:8080 in environment: development```
 
 
-Step 2 - Verify App does not work with JDK 17
+Step 2 - Verify grails cli does not work with JDK 17
 ```bash
 grails run-app
 ```
